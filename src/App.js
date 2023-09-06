@@ -58,6 +58,13 @@ function App() {
       phone: "",
       email: "",
     });
+
+    toggleShowNewUserOverlay(false);
+  };
+
+  // Update user function
+  const editUser = (userId) => {
+    console.log("updating", userId);
   };
 
   /** Passing this functions to the userList component for onClick callback function */
@@ -65,21 +72,17 @@ function App() {
     setUserLists((userlists) => userlists.filter((list) => list.id !== userID));
   };
 
-  const editUser = (userID) => {
-    console.log("editing user");
-  };
-
   /** UI elements */
   return (
     <div>
-      <div className="relative w-full h-full bg-gray-100 flex flex-col items-center">
+      <div className="relative w-full h-full bg-gray-100 flex flex-col items-start lg:items-center">
         {/* Project title */}
         <h1 className="text-3xl font-semibold text-gray-600 p-4 mb-4">
           User Management Application
         </h1>
 
         <button
-          className="absolute right-8 top-2 bg-blue-400 py-2 px-8
+          className="fixed right-8 top-4 bg-blue-400 py-2 px-8
          text-white shadow-md cursor-pointer rounded-lg text-sm"
           onClick={toggleShowNewUserOverlay}>
           Add New User
@@ -89,14 +92,14 @@ function App() {
         <div
           className={`${
             showNewUserOverlay ? "flex" : "hidden"
-          } flex-col justify-start items-start 
-          p-4 m-2 fixed top-12 right-8 shadow-md border border-1 rounded-lg`}>
-          <h2 className="text-[20px] font-semibold text-gray-600 mb-2">
+          } flex-col justify-start items-start bg-blue-400
+          p-4 m-2 fixed top-14 right-8 shadow-md border border-1 rounded-lg`}>
+          <h2 className="text-[20px] font-semibold text-white mb-2">
             Add new user
           </h2>
           <form onSubmit={handleSubmit}>
             <div className="flex flex-col gap-2 mb-4">
-              <label className="text-[18px] font-semibold text-gray-600">
+              <label className="text-[18px] font-semibold text-white">
                 name
               </label>
               <input
@@ -110,7 +113,7 @@ function App() {
               />
             </div>
             <div className="flex flex-col gap-2 mb-4">
-              <label className="text-[18px] font-semibold text-gray-600">
+              <label className="text-[18px] font-semibold text-white">
                 Email
               </label>
               <input
@@ -124,7 +127,7 @@ function App() {
               />
             </div>
             <div className="flex flex-col gap-2 mb-4">
-              <label className="text-[18px] font-semibold text-gray-600">
+              <label className="text-[18px] font-semibold text-white">
                 Phone
               </label>
               <input
@@ -140,7 +143,7 @@ function App() {
             <button
               type="submit"
               onSubmit={handleSubmit}
-              className="bg-blue-400 py-2 px-8 text-white shadow-md cursor-pointer rounded-lg text-sm">
+              className="text-blue-400 py-2 px-8 bg-white shadow-md cursor-pointer rounded-lg text-sm">
               submit
             </button>
           </form>
@@ -148,7 +151,7 @@ function App() {
 
         {/* Conditionaly rendering userLists component and loader */}
         {userLists ? (
-          <div className="w-[900px] h-[600px] py-4 px-4 rounded-lg shadow-md border border-1 overflow-y-scroll">
+          <div className="w-[900px] h-[600px] py-4 px-4 rounded-lg shadow-md border border-1 overflow-y-scroll overflow-x-scroll lg:overflow-x-hidden">
             {userLists.map((user) => {
               return (
                 <UserList
