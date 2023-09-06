@@ -151,7 +151,7 @@ function App() {
 
         {/* Conditionaly rendering userLists component and loader */}
         {userLists ? (
-          <div className="w-fit lg:w-[900px] h-[600px] py-4 px-4 rounded-lg shadow-md border border-1 overflow-y-scroll">
+          <div className="w-fit lg:w-[900px] h-[600px] py-4 px-4 rounded-lg shadow-md border border-1 overflow-y-scroll overflow-x-scroll lg:overscroll-x-none">
             {userLists.map((user) => {
               return (
                 <UserList
