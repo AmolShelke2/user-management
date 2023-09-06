@@ -77,7 +77,7 @@ function App() {
     <div>
       <div className="relative w-full h-full bg-gray-100 flex flex-col items-start lg:items-center">
         {/* Project title */}
-        <h1 className="text-3xl font-semibold text-gray-600 p-4 mb-4">
+        <h1 className="text-lg lg:text-3xl font-semibold text-gray-600 p-4 mb-4 mr-2">
           User Management Application
         </h1>
 
@@ -151,7 +151,7 @@ function App() {
 
         {/* Conditionaly rendering userLists component and loader */}
         {userLists ? (
-          <div className="w-[900px] h-[600px] py-4 px-4 rounded-lg shadow-md border border-1 overflow-y-scroll overflow-x-scroll lg:overflow-x-hidden">
+          <div className="w-fit lg:w-[900px] h-[600px] py-4 px-4 rounded-lg shadow-md border border-1 overflow-y-scroll">
             {userLists.map((user) => {
               return (
                 <UserList
