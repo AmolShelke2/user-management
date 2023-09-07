@@ -63,9 +63,7 @@ function App() {
   };
 
   // Update user function
-  const editUser = (userId) => {
-    console.log("updating", userId);
-  };
+  const updateUser = (updatedUser) => {};
 
   /** Passing this functions to the userList component for onClick callback function */
   const deleteUser = (userID) => {
@@ -158,7 +156,7 @@ function App() {
                   key={user.id}
                   user={user}
                   deleteUser={deleteUser}
-                  editUser={editUser}
+                  updateUser={updateUser}
                 />
               );
             })}
