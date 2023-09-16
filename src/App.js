@@ -162,7 +162,7 @@ function App() {
             })}
           </div>
         ) : (
-          <div className="w-full h-full bg-gray-100 flex flex-col items-center justify-center">
+          <div className="w-full h-[80vh] bg-gray-100 flex flex-col items-center justify-center">
             <img
               src="/assets/loader.gif"
               alt="loading"
